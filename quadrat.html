@@ -4,6 +4,36 @@
 <script src="http://code.jquery.com/jquery-1.5.1.js"></script>
 <script>
 
+setInterval(moveQuadrat, 20);
+var keys = {}
+
+$(window).keydown(function(e) {
+    keys[e.keyCode] = true;
+});
+
+$(window).keyup(function(e) {
+    delete keys[e.keyCode];
+});
+
+
+function moveQuadrat() {
+    for (var direction in keys) {
+        if (!keys.hasOwnProperty(direction)) continue;
+        if (direction == 37) {
+            $("#quadrat").animate({left: "-=5"}, 0);                
+        }
+        if (direction == 38) {
+            $("#quadrat").animate({top: "-=5"}, 0);  
+        }
+        if (direction == 39) {
+            $("#quadrat").animate({left: "+=5"}, 0);  
+        }
+        if (direction == 40) {
+            $("#quadrat").animate({top: "+=5"}, 0);  
+        }
+    }
+}
+
 /*alumne1*/
 function color_red(){
 	//modifica el color del quadrat a vermell
@@ -11,19 +41,9 @@ function color_red(){
 	
 }
 
-function move_right(){
-	//mou el quadrat 10px a la dreta
-
-}
-
 /*alumne2*/
 function color_blue(){
 	//modifica el color del quadrat a blau
-
-}
-
-function move_left(){
-	//mou el quadrat 10px a l'esquerre
 
 }
 
@@ -33,19 +53,9 @@ function color_green(){
 	$("#quadrat").css('background-color', 'green');	
 }
 
-function move_up(){
-	//mou el quadrat 10px amunt
-	$("#quadrat").css('top','+=10px');
-}
-
 /*alumne4*/
 function color_yellow(){
 	//modifica el color del quadrat a groc
-
-}
-
-function move_down(){
-	//mou el quadrat 10px avall
 
 }
 
@@ -80,15 +90,6 @@ $(window).keyup(function(event){
 		
 		case 107: engrandir();break; //tecla +
 		case 109: encongir();break; //tecla -		
-	}
-});
-
-$(window).keypress(function(event){
-    switch(event.keyCode){
-		case 37: move_left();break; 
-		case 38: move_up();break; 
-		case 39: move_right();break; 	
-		case 40: move_down();break; 
 	}
 });
 
