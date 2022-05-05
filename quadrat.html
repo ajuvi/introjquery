@@ -1,0 +1,97 @@
+<html>
+<head>
+<title></title>
+<script src="http://code.jquery.com/jquery-1.5.1.js"></script>
+<script>
+
+/*alumne1*/
+function color_red(){
+	//modifica el color del quadrat a vermell
+	
+}
+
+function move_right(){
+	//mou el quadrat 10px a la dreta
+
+}
+
+/*alumne2*/
+function color_blue(){
+	//modifica el color del quadrat a blau
+
+}
+
+function move_left(){
+	//mou el quadrat 10px a l'esquerre
+
+}
+
+/*alumne3*/
+function color_green(){
+	//modifica el color del quadrat a verd
+
+}
+
+function move_up(){
+	//mou el quadrat 10px amunt
+
+}
+
+/*alumne4*/
+function color_yellow(){
+	//modifica el color del quadrat a groc
+
+}
+
+function move_down(){
+	//mou el quadrat 10px avall
+
+}
+
+/*altres*/
+function engrandir(){
+	var pos=$("#quadrat").width();
+	pos=Math.min(pos+10,200);
+	$("#quadrat").css('width', pos);	
+	$("#quadrat").css('height', pos);		
+}
+
+function encongir(){
+	var pos=$("#quadrat").width();
+	pos=Math.max(pos-10,10);
+	$("#quadrat").css('width', pos);	
+	$("#quadrat").css('height', pos);	
+}
+
+</script>
+</head>
+<body>
+
+<div id="quadrat" style="position:absolute; top:20px; left:100px; background-color:blue; width:40px; height:40px">&nbsp;</div>
+<script>
+
+$(window).keyup(function(event){
+    switch(event.keyCode){
+		case 49: color_red();break; //tecla 1
+		case 50: color_blue();break; //tecla 2
+		case 51: color_green();break; //tecla 3	
+		case 52: color_yellow();break; //tecla 4
+		
+		case 107: engrandir();break; //tecla +
+		case 109: encongir();break; //tecla -		
+	}
+});
+
+$(window).keypress(function(event){
+    switch(event.keyCode){
+		case 37: move_left();break; 
+		case 38: move_up();break; 
+		case 39: move_right();break; 	
+		case 40: move_down();break; 
+	}
+});
+
+</script>
+
+</body>
+</html>
